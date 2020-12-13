@@ -1,7 +1,7 @@
 # UnderKG Parser
 
 # What is it?
-This is underkg.co.kr web parser.
+This is [underkg.co.kr](http://underkg.co.kr) web parser.
 
 ## What can you parse?
 * Freeboard
@@ -10,4 +10,4 @@ This is underkg.co.kr web parser.
 
 # How to use?
 
-[Example](https://github.com/brainer3220/underKG-Parse/blob/master/Example.ipynb)
+[Example](Example.ipynb)
