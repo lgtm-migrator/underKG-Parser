@@ -30,7 +30,7 @@ def BasicParse(URL, Target, DTail):
 
 
 class underkgParse:
-    def __init__(self, num):
+    def __init__(self, num=1):
         self.num = str(num)
 
         self.url = 'http://underkg.co.kr/index.php?mid='
@@ -44,11 +44,9 @@ class underkgParse:
 
         Title = BasicParse(
             URL, 'h1', 'Text')
-        # List2 = BasicParse(URL, 'span.readNum')
 
         imageURL = BasicParse(
             URL, 'thumb-wrap', 'img')
-        # imageURL = BasicParse(URL, 'img', 'img')
 
         return Title, imageURL
 
@@ -78,33 +76,10 @@ class underkgParse:
         return Title, Author, qaNo
 
 if __name__ == "__main__":
-    NewsTitle, imageURL = underkgParse(num=1).News()
-    # FreeboardTitle, FreeboardAuthor, FreeboardReadNum, FreeboardNo = underkgParse(num=1).Freeboard()
+    NewsTitle, imageURL = underkgParse().News()
+    FreeboardTitle, FreeboardAuthor, FreeboardReadNum, FreeboardNo = underkgParse().Freeboard()
+    qaTitle, qaAuthor, qaNo = underkgParse().QnA()
 
-    # qaTitle, qaAuthor, qaNo = underkgParse().QnA()
-
-    # for i in imageURL:
-    #     print(i)
-
-    # print(pd.DataFrame([np.asarray(FreeboardTitle), np.asarray(FreeboardAuthor), np.asarray(FreeboardReadNum), np.asarray(FreeboardNo)]).T)
+    print(pd.DataFrame([np.asarray(FreeboardTitle), np.asarray(FreeboardAuthor), np.asarray(FreeboardReadNum), np.asarray(FreeboardNo)]).T)
+    print(pd.DataFrame([np.asarray(qaTitle), np.asarray(qaNo), np.asarray(NewsTitle)]).T)
     print(pd.DataFrame([np.asarray(NewsTitle)]).T)
-
-    # News = []
-    # Freeboard = []
-    # QnA = []
-
-    # for i in range(1, 5):
-    #     News.append(underkgParse(num=i).News())
-    #     Freeboard.append(underkgParse(num=i).Freeboard())
-    #     QnA.append(underkgParse(num=i).QnA())
-
-    # News = np.asarray(News)
-    # Freeboard = np.asarray(Freeboard)
-    # QnA = np.asarray(QnA)
-
-    # print(pd.DataFrame(News))
-    # print(pd.DataFrame(Freeboard))
-    # print(pd.DataFrame(QnA))
-
-    # print(qaTitle[19], qaAuthor[19], qaNo[19])
-    # print(imageURL[0])
